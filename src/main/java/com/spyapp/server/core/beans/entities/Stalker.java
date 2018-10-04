@@ -1,5 +1,6 @@
 package com.spyapp.server.core.beans.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
@@ -28,9 +29,11 @@ public class Stalker {
     @Column(name = "userEmail")
     private String email;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     @Column(name = "dateOfJoining")
     private Date dataOfJoining;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     @Column(name = "lastOnline")
     private Date lastOnline;
 

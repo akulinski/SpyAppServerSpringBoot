@@ -24,7 +24,6 @@ public class Victim {
     @Column(name = "lastUpdate")
     private Date lastUpdate;
 
-
     @Column(name = "cordinatesx")
     private Double cordinatesx;
 
@@ -36,9 +35,6 @@ public class Victim {
     @OneToMany(mappedBy = "victim")
     private Set<Photo> photos;
 
-/*    @Column(name = "STALKER_idSTALKER")
-    private int stalkerId;*/
-
     @ManyToOne
     @JoinColumn(name = "STALKER_idSTALKER", nullable = false)
     private Stalker stalker;
@@ -48,12 +44,9 @@ public class Victim {
 
     }
 
-    public Victim(int id, String name, int stalkerId, Date lastUpdate, double cordinatesx, double cordinatesy) {
-        this.id = id;
+    public Victim(String name, Stalker stalker, Date lastUpdate, double cordinatesx, double cordinatesy) {
         this.name = name;
-/*
-        this.stalkerId = stalkerId;
-*/
+        this.stalker = stalker;
         this.lastUpdate = lastUpdate;
         this.cordinatesx = cordinatesx;
         this.cordinatesy = cordinatesy;
@@ -75,13 +68,9 @@ public class Victim {
         this.name = name;
     }
 
-/*    public int getStalkerId() {
-        return stalkerId;
+    public Stalker getStalker() {
+        return stalker;
     }
-
-    public void setStalkerId(int stalkerId) {
-        this.stalkerId = stalkerId;
-    }*/
 
     public Date getLastUpdate() {
         return lastUpdate;
