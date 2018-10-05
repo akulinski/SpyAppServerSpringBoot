@@ -40,9 +40,8 @@ public class RandomStringGenerator {
 
     public String getHashID(int i) {
         String normalString = getString(i);
-        String hashed = BCrypt.hashpw(normalString, BCrypt.gensalt(12));
 
-        return hashed;
+        return BCrypt.hashpw(normalString, BCrypt.gensalt(12));
     }
 
 }

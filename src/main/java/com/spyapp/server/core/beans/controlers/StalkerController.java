@@ -166,7 +166,6 @@ public class StalkerController {
 
         Stalker stalker = stalkerRepository.findByUsername(request.getStalkerName()).get();
 
-
         Victim victim = victimRepository.findVictimByStalkerAndName(stalker, request.getVictimName()).get();
         if (victim != null) {
             return new ResponseEntity<Victim>(victim, HttpStatus.ACCEPTED);
